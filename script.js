@@ -7,20 +7,20 @@ let isDragging = false;
 let startX;
 let scrollLeft;
 	
-	itemsContainer.addEventListener("mousedown",(e) =>{
+	itemsContainer.addEventListener('mousedown',(e) =>{
 		isDragging = true;
 		startX = e.pageX - itemsContainer.offsetLeft;
 		scrollLeft = itemsContainer.scrollLeft;
-		itemsContainer.classList.add("active");
+		itemsContainer.classList.add('active');
 	});
 itemsContainer.addEventListener('mouseup',() =>{
 	isDragging = false;
-	itemsContainer.classList.remove("active");
+	itemsContainer.classList.remove('active');
 });
 
 itemsContainer.addEventListener('mouseleave',() =>{
 	isDragging = false;
-	itemsContainer.classList.remove("active");
+	itemsContainer.classList.remove('active');
 });
 itemsContainer.addEventListener('mousemove', (e) =>{
 	if(!isDragging) return;
@@ -31,7 +31,7 @@ itemsContainer.addEventListener('mousemove', (e) =>{
 	
 });
 
-itemsContainer.addEVentListener("contextmenu",(e)=>{
+itemsContainer.addEventListener('contextmenu',(e)=>{
 	e.preventDefault();
 });
 
