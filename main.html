@@ -36,41 +36,35 @@
 
 <script>
 //Your code goes here 
-	const itemsContainer = document.querySelector(".items");
+	const slider = document.querySelector(".items");
 const items = document.querySelectorAll(".item");
 
 let isDragging = false;
 let startX;
 let scrollLeft;
 
-itemsContainer.addEventListener("mousedown", (e) => {
+	slider.addEventListener("mousedown", (e) => {
   isDragging = true;
-  startX = e.pageX - itemsContainer.offsetLeft;
-  scrollLeft = itemsContainer.scrollLeft;
-  itemsContainer.classList.add("active");
-	itemsContainer.style.cursor = 'grabbing'
+  startX = e.pageX - slider.offsetLeft;
+  scrollLeft = slider.scrollLeft;
+  slider.classList.add("active");
 });
 
-itemsContainer.addEventListener("mouseup", () => {
+slider.addEventListener("mouseleave", () => {
   isDragging = false;
-  itemsContainer.classList.remove("active");
+  slider.classList.remove("active");
 });
-
-itemsContainer.addEventListener("mouseleave", () => {
+	slider.addEventListener("mouseup", () => {
   isDragging = false;
-  itemsContainer.classList.remove("active");
+  slider.classList.remove("active");
 });
 
-itemsContainer.addEventListener("mousemove", (e) => {
+slider.addEventListener("mousemove", (e) => {
   if (!isDragging) return;
   e.preventDefault();
-  const x = e.pageX - itemsContainer.offsetLeft;
-  const walk = (x - startX) * 2;
-  itemsContainer.scrollLeft = scrollLeft - walk;
-});
-
-itemsContainer.addEventListener("contextmenu", (e) => {
-  e.preventDefault();
+  const x = e.pageX - slider.offsetLeft;
+  const walk = (x - startX) * 3;
+  slider.scrollLeft = scrollLeft - walk;
 });
 </script>
 
