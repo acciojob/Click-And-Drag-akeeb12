@@ -10,16 +10,19 @@ itemsContainer.addEventListener("mousedown", (e) => {
   startX = e.pageX - itemsContainer.offsetLeft;
   scrollLeft = itemsContainer.scrollLeft;
   itemsContainer.classList.add("active");
+	itemsContainer.style.cursor = 'grabbing'
 });
 
 itemsContainer.addEventListener("mouseup", () => {
   isDragging = false;
   itemsContainer.classList.remove("active");
+	itemsContainer.style.cursor = 'grab';
 });
 
 itemsContainer.addEventListener("mouseleave", () => {
   isDragging = false;
   itemsContainer.classList.remove("active");
+	itemsContainer.style.cursor = 'grab';
 });
 
 itemsContainer.addEventListener("mousemove", (e) => {
